@@ -7,9 +7,71 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
-library(reticulate)
+library(reticulate) #
 use_python("D:\\ANCODA1\\envs\\myEnvironment2\\python.exe",
            required = T)
 use_condaenv("myEnvironment2", required = T)
+```
+
+```{python}
+a=5
+type(a) # check class type
+  ```
+```
+
+# conda安裝方式
+conda_install("myEnvironment2", # 沙盒環境名稱
+              c("numpy","pandas")) # 要安裝的modules
+
+```{python}
+string = 'very good'
+string2 = 'I am very good' 
+type(string)
+numInteger = 3
+type(numInteger)
+#len(numInteger)
+numFloat = 3.
+type(numFloat)
+#len(numFloat)
+```
+
+
+```{python}
+logiT=True
+type(logiT)
+logiF=False
+type(logiF)
+```
+
+```{python}
+logiT+logiT+logiF
+```
+
+```{python}
+list = [1,True,'apple',[1,2,3],(1,True),'bird','cat',['a','b','c']]
+len(list)
+```
+```{python}
+listA=[1,2,True]
+listA
+type(listA)
+listB=[1,["a","b"],True] # nested list
+listB
+type(listB)
+```
+```{python}
+var1, var2 ,var3 = listA
+```
+
+```{python}
+var1
+var2
+var3
+```
+
+```{python}
+a,*b = listA
+a; type(a)
+b; type(b)
 ```
 
