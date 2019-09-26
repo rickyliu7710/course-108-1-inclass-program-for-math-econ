@@ -3,7 +3,7 @@ title: "課堂練習"
 date: "9/12/2019"
 output: html_document
 editor_options: 
-  chunk_output_type: inline
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -53,9 +53,217 @@ dica["Score"][0]
 
 
 ```{python}
-for i in range(5):
-  dica["name"][i]:dica["Score"][i]
+sparseMatrix = {
+(0, 0): 3, 
+(0, 2): -2, 
+(0, 3): 11,
+(1, 1): 9, 
+(2, 1): 7, 
+(3, 3): -5}
+print(sparseMatrix)
 ```
+
+
+
+```{python}
+sparseMatrix[(3,3)]
+```
+
+```{python}
+originalList=[1,2,"a"]
+definitionCopy=originalList # definition
+sliceCopy=originalList[:] # slice so we need to use slice copy cuz the orginal date change , our date wont chnage anymore
+sliceCopy2=originalList.copy()
+sliceCopy
+sliceCopy2
+```
+
+```{python}
+print(definitionCopy)
+print(originalList)
+
+definitionCopy[1]="b"
+print(definitionCopy)
+print(originalList)
+
+originalList[1]=2
+print(definitionCopy)
+print(originalList)
+```
+
+```{python}
+originalList=[1,2,"a"]
+sliceCopy=originalList[:] # slice
+print(sliceCopy)
+print(originalList)
+
+sliceCopy[1]="b"
+print(sliceCopy)
+print(originalList)
+
+originalList[1]="f"
+print(sliceCopy)
+print(originalList)
+```
+
+```{python}
+a = [1,2,3,4,5]
+b=a
+
+b[0] = "a"
+a
+b
+```
+
+
+```{python}
+c = [1,2,3,4,5]
+d = c.copy()
+d[0] = "b"
+c
+d
+```
+
+
+```{python}
+import copy
+e = [1,[2,5],3,4]
+f = copy.deepcopy(e)
+f[1][0] = 10
+e
+f
+```
+
+```{python}
+listA = [1,2,3,4,5]
+listA+[6]
+listA
+```
+
+```{python}
+listB = [3,2,11,43]
+
+[listB[i]+3 for i in [0,1,2,3]]
+
+```
+
+```{python}
+listc = []
+listB = [3,2,11,43]
+for i in listB:
+  a = i+3
+  listc.append(a)
+listc
+```
+
+```{python}
+x = set([1, 2, 3, 1, 3, 5]) 
+y = set([1, 7, 8, 9])
+
+# union
+x | y   
+
+# join
+x & y   
+
+x and y
+x or y
+```
+
+```{python}
+x=3
+x<5 and x<10
+x<5 or x>4
+not(x<5 or x>4)
+
+```
+
+```{python}
+listF=[2,5,10,11,-1,7]
+listF[0] > 3
+listF[1] > 3
+
+[listF[i] >3 for i in [0,1,2,3,4,5]]
+```
+```{python}
+listG=[4,7,-2,10,11,15]
+[listG[i] > listF[i] for i in range(6)]
+```
+
+```{python}
+listC=[2,3,4]
+str(listC)
+
+
+[str(listC[i]) for i in range(3)]
+
+```
+
+```{python}
+[i for i in "abc"]
+[i for i in {"A": 25, "B": 1, "C": 44}]
+[i for i in [0,5,8]]
+```
+
+
+```{python}
+list2iter=["a",2,"c",6,5,5,8,9]
+[i for i in [0,1,2]]
+[i for i in range(0,3)] 
+[i for i in range(0,len(list2iter))] 
+[i for i in list2iter]
+
+[type(list2iter[i]) is str for i in range(8)]
+
+[type(list2iter[i]) == str for i in range(8)]
+
+type(list2iter[1]) == str
+```
+
+
+```{python}
+x1,x2,x3=x.split() # use space to cut
+print(x1)
+print(x2)
+print(x3)
+
+y="wang small min ,45 years,blood:A"
+y1,y2,y3=y.split(",") # use , to cut
+print(y1); print(y2); print(y3)
+
+print(y.split(",",1)) # only have one cut
+print(y.split(",",2)) # only have two cut
+```
+
+```{python}
+" ".join(["用", "空格", "把", "字", "連起來"])
+```
+
+```{python}
+"".join(["用", "空格", "把", "字", "連起來"])
+```
+
+```{python}
+" 你好嗎？ ".strip()
+" 你好嗎？ ".lstrip()
+" 你好嗎？ ".rstrip()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
