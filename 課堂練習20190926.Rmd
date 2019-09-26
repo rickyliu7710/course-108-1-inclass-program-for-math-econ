@@ -248,8 +248,36 @@ print(y.split(",",2)) # only have two cut
 " 你好嗎？ ".lstrip()
 " 你好嗎？ ".rstrip()
 ```
+```{python}
+" 你好嗎？ ".strip("嗎？ ")
+" 你好嗎？ ".replace("嗎？","!")`
+```
+```{python}
+"{0}的{1}成績是{2}".format("小明", "經原", 50)  
+"{}的{}成績是{}".format("小明", "經原", 50) 
+"{1}的{0}成績是{2}".format("經原","小明", 50)   
 
 
+"{name}的{subject}成績是{grade}".format(
+  name="小明",grade=50,subject="經原")
+```
+
+
+```{python}
+x="上海"
+xlist=list(x)
+xlist.reverse()
+print(xlist)
+"".join(xlist)
+
+```
+
+
+```{python}
+x="上海"
+xlist=list(x)
+''.join(xlist.reverse())
+```
 
 
 
