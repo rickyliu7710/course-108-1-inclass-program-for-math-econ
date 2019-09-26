@@ -2,6 +2,8 @@
 title: "課堂練習"
 date: "9/12/2019"
 output: html_document
+editor_options: 
+  chunk_output_type: inline
 ---
 
 ```{r setup, include=FALSE}
@@ -12,6 +14,50 @@ use_python("D:\\ANCODA1\\envs\\myEnvironment2\\python.exe",
            required = T)
 use_condaenv("myEnvironment2", required = T)
 ```
+```{python}
+a=5
+type(a) # check class type
+  ```
+```
+
+```{python}
+sparseMatrix = {
+(0, 0): 3, 
+(0, 2): -2, 
+(0, 3): 11,
+(1, 1): 9, 
+(2, 1): 7, 
+(3, 3): -5}
+print(sparseMatrix)
+```
+
+```{python}
+dictionaryA ={"name": "Mary", "id": "A28374", "grade": 77}
+dictionaryA
+```
+
+```{python}
+dica = {
+"id":[172,214,322,425,517],
+"name":['tmr','bear','tiget','new','big white'],
+"Score":[80,90,60,70,50]
+}
+dica["name"][0]
+dica["Score"][0]
+
+```
+
+```{python}
+{dica["name"][i]:dica["Score"][i] for i in [0,1,2,3,4]}
+```
+
+
+```{python}
+for i in range(5):
+  dica["name"][i]:dica["Score"][i]
+```
+
+
 
 
 
