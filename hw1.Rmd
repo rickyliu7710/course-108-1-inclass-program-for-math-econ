@@ -172,5 +172,9 @@ danceInfoList# danceInfoList
 '【原音舞絢】將於2019/09/29 14:30:00在台北市中山南路21號，藍白建築1樓演出'
 
 ```{python ans36}
-# danceInfoStr
+danceInfoStr= []
+for i in range(len(danceInfoList)):
+    num = '{0} 將於 {1} 在 {2} 演出'.format(danceInfoList[i]['title'],danceInfoList[i]['time'],danceInfoList[i]['local'])
+    danceInfoStr.append(num)
+danceInfoStr# danceInfoStr
 ```
