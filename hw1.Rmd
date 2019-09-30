@@ -100,14 +100,15 @@ dict_business=df_business.to_dict()
 有多少公司的'公司所在地'在'桃園市'，請將數字存在`num_taoyuan`。
 
 ```{python ans21}
-
-# num_taoyuan
+num_taoyuan = ["桃園市" in dict_business["公司所在地"][i] for i in range(3446)].count(True)
+num_taoyuan # num_taoyuan
 ```
 
 ### 2.2
 有多少公司的'資本額'大於500000，請將數字存在`num_largeCapital`。
 ```{python ans22}
-# num_largeCapital
+num_largeCapital = [dict_business["資本額"][i] > 500000 for i in range(len(dict_business["資本額"]))].count(True)
+num_largeCapital# num_largeCapital
 ```
 
 ## 3
@@ -121,13 +122,16 @@ danceInfo=response.json()
 ### 3.1
 danceInfo的每個元素是一場表演的訊息，請找出它有多少場舞蹈表演，存在numDance的class int物件裡
 ```{python ans31}
+numDance = len(danceInfo)
+numDance
 # numDance
 ```
 
 ### 3.2
 第1場的表演名稱'title'是什麼？請存在名為title1的物件裡。
 ```{python ans32}
-# title1
+title1 = danceInfo[0]['title']
+title1 # title1
 ```
 
 
@@ -135,14 +139,16 @@ danceInfo的每個元素是一場表演的訊息，請找出它有多少場舞�
 第1場的表演地點'location'在哪裡?請存在名為local1的物件裡。
 
 ```{python ans33}
-# local1
+local1 = danceInfo[0]['showInfo'][0]['location']
+local1# local1
 ```
 
 ### 3.4
 第1場的表演時間'time'為何？請存在名為time11的物件裡。
 
 ```{python ans34}
-# time1
+time1 = danceInfo[0]['showInfo'][0]['time']
+time1# time1
 ```
 
 ### 3.5
@@ -151,7 +157,14 @@ danceInfo的每個元素是一場表演的訊息，請找出它有多少場舞�
 [{'title': '原音舞絢', 'time': '2019/09/29 14:30:00', 'location': '台北市中山南路21號，藍白建築1樓'}, {'title': '國立彰化生活美學館108年「舞藝人生-土風舞藝術」推廣計畫-第四場', 'time': '2019/11/03 08:30:00', 'location': '彰化縣彰化市卦山路18號'}]
 
 ```{python ans35}
-# danceInfoList
+danceInfoList=[]
+for i in range(len(danceInfo)):
+    title_sample = danceInfo[i]['title']
+    time_sample = danceInfo[i]['showInfo'][0]['time']
+    local_sample = danceInfo[i]['showInfo'][0]['location']
+    dic1 = {"title":title_sample,"time":time_sample,"local":local_sample}
+    danceInfoList.append(dic1)
+danceInfoList# danceInfoList
 ```
 
 ### 3.6
