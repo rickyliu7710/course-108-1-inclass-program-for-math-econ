@@ -2,6 +2,8 @@
 title: "課堂練習"
 date: "9/12/2019"
 output: html_document
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE}
@@ -12,4 +14,118 @@ use_python("D:\\ANCODA1\\envs\\myEnvironment2\\python.exe",
            required = T)
 use_condaenv("myEnvironment2", required = T)
 ```
+
+```{python}
+dictionaryA={
+  "日期": [2001,2002,2003],
+  "金額": [21000,33000,45880]}
+dictionaryA
+
+dictionaryA["數量"]=[100,200,300]
+dictionaryA
+```
+
+```{python}
+dictionaryA.keys()
+```
+
+```{python}
+import requests
+response=requests.get("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=3")
+danceInfo=response.json()
+```
+
+```{python}
+danceInfo[1].keys()
+danceInfo[1].values()
+```
+
+```{python}
+dictionaryA.get("日期")
+dictionaryA.get("品項")
+dictionaryA.get("品項","無此key")
+```
+
+
+```{python}
+list(dictionaryA.values())
+list(dictionaryA.values())[0]
+```
+
+```{python}
+dictionaryA.keys()
+list(dictionaryA.keys())[0]
+[dictionaryA.keys()][0]
+```
+
+
+```{python}
+import pandas as pd
+
+finStatement=pd.read_csv("http://mopsfin.twse.com.tw/opendata/t187ap06_O_ci.csv")
+dict_finStatement=finStatement.to_dict()
+```
+
+
+```{python}
+lista = []
+for i in range(767):
+    if dict_finStatement.get('營業利益（損失）')[i] < 0 :
+        a = dict_finStatement.get('公司名稱')[i]
+        lista.append(a)
+lista
+```
+
+```{r}
+View(py$dict_finStatement)
+```
+
+
+
+```{python}
+def test(input1, input2=0):
+  print('input1 is ', input1)
+  print('input2 is ', input2)
+  return None
+  
+test(1,1) 
+test(input1=1,input2=1)
+
+test(1) # 動用到預設值
+```
+
+
+```{python}
+def myFun(x,y=6):
+  return x+y
+
+myFun(10,20)
+```
+
+
+```{python}
+def test2(input1,*input3):
+  print('input1 is ', input1)
+  print('input3 is ', input3)
+  return None
+ 
+test2(1,1.2,4,5)
+test2(1,[1.2,4],5)
+test2(["1","b"],{2,5,7},10)
+```
+
+
+```{python}
+def utility_cobb_douglass(x,y, **parameters):
+  alpha = paramaters[0]
+  beta = paramaters[1]
+  utilValue = x**alpha*y**beta # 程序產生output值
+  
+  return utilValue # 傳回output值
+
+utility_cobb_douglass(1,1,alpha = 1,beta = 1)
+utility_cobb_douglass(1,1)
+```
+
+
 
