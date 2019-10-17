@@ -174,7 +174,7 @@ danceInfoList# danceInfoList
 ```{python ans36}
 danceInfoStr= []
 for i in range(len(danceInfoList)):
-    num = '{0} 將於 {1} 在 {2} 演出'.format(danceInfoList[i]['title'],danceInfoList[i]['time'],danceInfoList[i]['local'])
+    num = '【{0}】 將於 {1} 在 {2} 演出'.format(danceInfoList[i]['title'],danceInfoList[i]['time'],danceInfoList[i]['local'])
     danceInfoStr.append(num)
 danceInfoStr# danceInfoStr
 ```
