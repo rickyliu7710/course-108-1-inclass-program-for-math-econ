@@ -183,7 +183,11 @@ python_code_list[2]
 ```
 
 ```{python ans14}
-# python_code_list
+python_code_list = []
+for i in range(1,18,1):
+    for j in range(start[i]+1,end[i],1):   
+        python_code_list.append(filelines[j])
+python_code_list
 ```
 
 
@@ -218,7 +222,11 @@ allUIDs[1]
 ```
 
 ```{python ans21}
-# allUIDs
+allUIDs = []
+for i in range(len(danceInfo)):
+    allUIDs.append(danceInfo[i]['UID'])    
+allUIDs
+
 ```
 
 ### 2.2
@@ -237,7 +245,10 @@ hint: 答案正確時，打`search_by_uid('5d93a403d083a331549834d6')`會得到�
 ```
 
 ```{python ans22}
-# search_by_uid
+def search_by_uid(uid):
+    if uid in allUIDs:
+        return danceInfo[allUIDs.index(uid)]['showInfo']
+search_by_uid
 ```
 
 ### 2.3
@@ -254,6 +265,14 @@ hint: 若答案正確，`updated_result`內容值為：
 ```
 
 ```{python ans23}
+updated_result = []
+showInfo = search_by_uid('5d35ec95d083a398fcdc5e14')
+for i in range(len(showInfo)):
+    m = {'time' : [search_by_uid('5d35ec95d083a398fcdc5e14')[i]['time']],
+    'location' : [search_by_uid('5d35ec95d083a398fcdc5e14')[i]['location']],
+    'locationName' : [search_by_uid('5d35ec95d083a398fcdc5e14')[i]['locationName']]}
+    updated_result.append(m)
+updated_result
 # updated_result
 ```
 
@@ -277,7 +296,8 @@ M=[[7, -9, -5, 10, -13],
 令$M_{ij}$代表M中第i行（row）第j列（column）的值，請取出$M_{24}$ 存在答案物件M24
 
 ```{python ans31}
-# M24
+M24 = M[1][3]
+M24# M24
 ```
 
 ### 3.2
@@ -288,6 +308,11 @@ $$M_{2:3,3:5}=\left[\begin{array}{ccccc}
 \end{array}\right]$$
 並將它存在答案物件M_partial
 ```{python ans32}
+M_partial = []
+for i in range(1,3):
+    for j in range(2,5):
+        M_partial.append(M[i][j])
+M_partial
 # M_partial
 ```
 
