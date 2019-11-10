@@ -76,7 +76,27 @@ df_grade0.學號
 #這是一個新的dataframe的取法 跟以往我用df_grade0['學號'][1]有相同意思
 ```
 
+```{python}
+df_grade0
+df_grade0[2:3]
+df_grade0[0:2]
+```
 
+```{python}
+df_grade0[[True,False,True,False,False]]
+df_grade0.成績>70
+df_grade0[df_grade0.成績>70]
+```
+
+
+
+
+
+```{python}
+from mymodule import pi
+pi
+area(2) # 只有import pi沒有import area
+```
 
 
 
