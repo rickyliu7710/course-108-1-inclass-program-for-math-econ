@@ -2,8 +2,8 @@
 title: "homework3"
 output: html_document
 params:
-  studentID: "你的學號"
-  studentName: "你的姓名"
+  studentID: "710634108"
+  studentName: "劉釋孔"
 editor_options: 
   chunk_output_type: console
 ---
