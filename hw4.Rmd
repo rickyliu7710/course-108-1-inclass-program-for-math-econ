@@ -1,0 +1,88 @@
+---
+title: "homework4"
+output: html_document
+params:
+  studentID: "你的學號"
+  studentName: "你的姓名"
+---
+# 注意事項
+
+存檔與填寫注意事項：
+
+假設你叫王小明，學號41078392。
+
+  1. 存檔時，請用你的學號當延伸檔名。學號為41078392，則請存成homeworkX-41078392.Rmd, X為這次作業號碼。(記得使用：save with enconding, 然後選utf-8)
+
+  2. 本文檔開始的Frontmatter中，studentID（即key）其value目前為"你的學號"，以上面學號為例則必需改成"41078392"；而studentName（key）其value目前為"你的名字"，以上面名字為例則必需改成"王小明"
+
+# 題目
+
+請先執以下code chunk開啟RStudio底下的Python環境：
+
+  * 注意`use_python`的路徑及`use_condaenv`的沙盒環境必需改成你電腦的對應設定。
+  
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval=F)
+
+library(reticulate)
+use_python("/anaconda3/envs/m-team/bin/python",required = T)
+use_condaenv("m-team", required = T)
+```
+
+```{python}
+import numpy as np
+import pandas as pd
+import itertools
+```
+
+
+## 作答需知
+
+  * 每一題會有設好的ans chunk，請將你的程式寫在裡面，切勿自行加新的python chunk。
+
+  * 以下每個ans chunk的最後一行有#號mark起來是指定答案物件的名字，請將你運算答案存在該物件，並把最後一行的#號拿掉。
+
+## 1 Probability space
+
+### 1.1 Sample space
+Tossing a dice once. Let Omega be its sample space. Construct Omega as a set of 1, 2, ..., 6.
+
+(`np.arange()`可以產生數字序列)
+
+```{python ans11}
+# Omega
+```
+
+### 1.2 Event space
+
+Construct event space as a set collection of all possible subsets (in frozenset form) of Omega, and call this collection A_big.
+
+```{python ans12}
+# A_big
+```
+
+### 1.3 Probability measure
+
+Suppose the probability of each outcome in sample space is defined in the following pd.Series P_sampleSpace, so that the probability of a simple outcome 2 is `P_sampleSpace[2]`, of 3 is `P_sampleSpace[3]`.
+```{python data1}
+P_sampleSpace = pd.Series(
+    np.array([1,3,4,2,6,3])/sum(np.array([1,3,4,2,6,3])),
+    index=np.arange(1,7))
+
+```
+
+Construct a pd.Series, P_measure, whose index is equal to `list(A_big)` so that each P_measure is a probability of an event described by its corresponding index value. If you did it correctly, you will have
+ 
+```
+>>> P_measure[frozenset([1,3,5])]
+0.5789473684210527
+>>> P_measure[frozenset({2, 3, 4, 5, 6})]
+0.9473684210526316
+>>> P_measure[frozenset({2, 5})]
+0.47368421052631576
+```
+
+```{python ans13}
+# P_measure    
+```
+

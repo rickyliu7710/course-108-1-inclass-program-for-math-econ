@@ -157,8 +157,9 @@ if "q2ans" not in globals() or not isinstance(q1ans,(dict,)):
 Suppose the definite integral starts from `a=2` to `b=3`. Use `np.linspace()` to divide it into `N` **equal**-width intervals. Make sure that `len(<your array of partitions>)=N`. Save the partition array, name it `x_partition`,  produced by `np.linspace()`.
 
 ```{python ans21}
+x_partition = np.linspace(2,3,num = 1401)
 
-# q2ans['x_partition']=x_partition
+q2ans['x_partition']=x_partition
 ```
 
 ### 2.2 $x^*_i$ values
@@ -177,6 +178,19 @@ Define a function, called `x_star(x_partition, alpha=0.5)`:
   * alpha: float between 0 and 1 with default 0.5
 
 ```{python ans22}
+def x_star_calculation(list_file, alpha = 0.5):
+    x_star = []
+    if alpha >1:
+        return "error"
+    if alpha < 0:
+        return "error"
+    for i in range(len(list_file)-1):
+        each_x_star = x_partition[i]+alpha*(x_partition[i+1]-x_partition[i])
+        x_star.append(each_x_star)
+    return x_star
+
+
+x_star = x_star_calculation(x_partition)
 # q2ans['x_star']=x_star
 ```
 
@@ -187,7 +201,16 @@ $$\sum_{i=1}^N f(x_i^ * ) (x_i - x_{i-1}) \ \ , \ x_i^* \in [x_{i-1},x_i],$$
 where $f=1/log(x)$, $a=2,b=3$, $N=100$, and $x^*_i$ is the midpoint of its corresponding interval. Save your result as `rsum`.
 
 ```{python ans23}
-# q2ans['ans23']=rsum
+accu_num = []
+ind_num = []
+sum = 0
+for i in range(len(x_partition)-1):
+    x_value = f(x_star[i])*(x_partition[i+1]-x_partition[i])
+    ind_num.append(x_value)
+    sum += x_value
+    accu_num.append(sum)
+rsum = np.array(ind_num).sum()
+q2ans['ans23']=rsum
 ```
 
 ### 2.4 Riemann sum function
