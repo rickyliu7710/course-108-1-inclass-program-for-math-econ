@@ -2,8 +2,10 @@
 title: "homework4"
 output: html_document
 params:
-  studentID: "你的學號"
-  studentName: "你的姓名"
+  studentID: "710634108"
+  studentName: "劉釋孔"
+editor_options: 
+  chunk_output_type: console
 ---
 # 注意事項
 
@@ -25,8 +27,8 @@ params:
 knitr::opts_chunk$set(echo = TRUE, eval=F)
 
 library(reticulate)
-use_python("/anaconda3/envs/m-team/bin/python",required = T)
-use_condaenv("m-team", required = T)
+use_python("D:\\ANCODA1\\envs\\myEnvironment2\\python.exe",
+           required = T)
 ```
 
 ```{python}
@@ -50,6 +52,9 @@ Tossing a dice once. Let Omega be its sample space. Construct Omega as a set of 
 (`np.arange()`可以產生數字序列)
 
 ```{python ans11}
+Omega={1,2,3,4,5,6}
+
+Omega
 # Omega
 ```
 
@@ -58,7 +63,15 @@ Tossing a dice once. Let Omega be its sample space. Construct Omega as a set of 
 Construct event space as a set collection of all possible subsets (in frozenset form) of Omega, and call this collection A_big.
 
 ```{python ans12}
-# A_big
+import itertools
+A_big=set([frozenset([]),frozenset(Omega)])
+
+maxN=len(Omega)
+for outcomeNumber in range(1,maxN):
+    for ix in itertools.combinations(Omega, outcomeNumber): # (1)
+        A_big.add(frozenset(ix))
+
+A_big
 ```
 
 ### 1.3 Probability measure
@@ -83,6 +96,17 @@ Construct a pd.Series, P_measure, whose index is equal to `list(A_big)` so that 
 ```
 
 ```{python ans13}
-# P_measure    
+def P_measure(A,Omega={1,2,3,4,5,6}):
+    Omega = np.array(list(Omega))
+    
+    P_sampleSpace = pd.Series(
+        np.array([1,3,4,2,6,3])/sum(np.array([1,3,4,2,6,3])),
+        index=np.arange(1,7))
+    
+    P_omega=pd.Series(P_sampleSpace, index=Omega)
+    
+    return sum(P_omega[list(A)])
+
+P_measure    
 ```
 

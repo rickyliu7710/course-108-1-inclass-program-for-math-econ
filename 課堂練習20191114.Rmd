@@ -22,3 +22,23 @@ def area(r):
     return(pi * r * r)
 ```
 
+
+$$
+Pt**\left[\begin{array}{c}
+F\\
+T\\
+T\\
+F
+\end{array}\right]=\left[\begin{array}{c}
+Pt**F\\
+Pt**T\\
+Pt**T\\
+Pt**F
+\end{array}\right]=\left[\begin{array}{c}
+Pt**0\\
+Pt**1\\
+Pt**1\\
+Pt**0
+\end{array}\right]
+$$
+
